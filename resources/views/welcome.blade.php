@@ -17,17 +17,25 @@
 </header>
 <main role="main">
     <div class="container">
-        @foreach ($area['DailyForecasts'] as $value)
-            <p>{{ $value['Date'] }}</p>
+        <div class="weather">
+        @foreach ($area as $value)
+            <div class="item">
+                <p>{{ $value['Date'] }}</p>
 
-            <h4>Temperature:</h4>
-            <p>Minimum {{ (($value['Temperature']['Minimum']['Value'])-32)*(5/9) }}</p>
-            <p>Maximum {{ (($value['Temperature']['Maximum']['Value'])-32)*(5/9) }}</p>
+                <h4>Temperature:</h4>
+                <p>Minimum {{ $value['Temperature']['Minimum']['Value'] }} &deg;</p>
+                <p>Maximum {{ $value['Temperature']['Maximum']['Value'] }} &deg;</p>
 
-            <h4>Day:</h4>
-            <p>Minimum {{ $value['Day']['IconPhrase'] }}</p>
+                <h4>Day:</h4>
+                <p> {{ $value['Day']['IconPhrase'] }}</p>
 
+                <h4>Night:</h4>
+                <p> {{ $value['Night']['IconPhrase'] }}</p>
+                <br>
+
+            </div>
         @endforeach
+        </div>
     </div>
 </main>
 
