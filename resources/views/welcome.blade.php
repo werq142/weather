@@ -18,7 +18,7 @@
 <main role="main">
     <div class="container">
         <div class="weather">
-        @foreach ($area as $value)
+        @foreach ($area['DailyForecasts'] as $value)
             <div class="item">
                 <p>{{ $value['Date'] }}</p>
 
